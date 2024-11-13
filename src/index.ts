@@ -1,5 +1,7 @@
 import express from "express";
 import route from "./routes/route";
+import dotenv from 'dotenv';
+dotenv.config();
 
 const PORT = process.env.PORT || 3000; // Se a porta não estiver definida nas váriaveis de ambiente usa a porta 3000
 
