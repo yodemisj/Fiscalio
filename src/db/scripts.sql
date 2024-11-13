@@ -1,4 +1,6 @@
 -- postgresSQl
+
+-- CREATE DATABASE IF NOT EXISTS fiscalio;
 CREATE TABLE IF NOT EXISTS NotaFiscal(
     IdNota serial,
     Emissor varchar(150) NOT NULL,
@@ -13,7 +15,8 @@ CREATE TABLE IF NOT EXISTS Item (
     IdItem serial,
     Produto varchar NOT NULL, 
     Valor numeric(15, 3) NOT NULL,
-    PRIMARY KEY (IdNota, IdItem)
+    PRIMARY KEY (IdNota, IdItem),
+    FOREIGN KEY (IdNota) REFERENCES NotaFiscal(IdNota)
 );
 
 CREATE INDEX IF NOT EXISTS idx_produto ON Item (Produto); 
